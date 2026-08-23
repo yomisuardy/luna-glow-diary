@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUNA • Glow Diary</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      background: linear-gradient(160deg, #fff8fc, #f8f2ff);
+      color: #4d4050;
+    }
+
+    .app {
+      max-width: 430px;
+      margin: auto;
+      padding: 24px 20px 40px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .hello {
+      font-size: 14px;
+      color: #a78ca3;
+    }
+
+    h1 {
+      margin: 4px 0 0;
+      font-size: 28px;
+    }
+
+    .moon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #f2e5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+    }
+
+    .weight-card {
+      background: linear-gradient(135deg, #f7dce9, #eee1ff);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 12px 35px rgba(160, 120, 160, 0.12);
+      margin-bottom: 18px;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #876f82;
+    }
+
+    .weight {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 5px 0;
+    }
+
+    .goal {
+      font-size: 14px;
+      color: #745c70;
+    }
+
+    .progress {
+      height: 10px;
+      background: rgba(255,255,255,.65);
+      border-radius: 20px;
+      margin-top: 18px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: #c78eb2;
+      border-radius: 20px;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin: 24px 4px 12px;
+    }
+
+    .habit {
+      background: rgba(255,255,255,.8);
+      border: 1px solid #f1e4ef;
+      border-radius: 18px;
+      padding: 15px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 5px 18px rgba(150,120,150,.06);
+    }
+
+    .habit input {
+      width: 21px;
+      height: 21px;
+      accent-color: #c78eb2;
+    }
+
+    .habit span {
+      font-size: 15px;
+    }
+
+    .bunny {
+      text-align: center;
+      font-size: 80px;
+      margin: 12px 0 2px;
+    }
+
+    .quote {
+      text-align: center;
+      font-size: 13px;
+      color: #947d90;
+      margin-bottom: 25px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #b19bab;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <div class="top">
+      <div>
+        <div class="hello">Good evening 🌙</div>
+        <h1>Hello, Sayang 🎀</h1>
+      </div>
+
+      <div class="moon">🌙</div>
+    </div>
+
+    <div class="weight-card">
+      <div class="small">CURRENT WEIGHT</div>
+
+      <div class="weight">40.0 kg</div>
+
+      <div class="goal">
+        Goal: <strong>45 kg</strong> 👑
+      </div>
+
+      <div class="progress">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="bunny">🐰</div>
+
+    <div class="quote">
+      Little steps still count. 🌷
+    </div>
+
+    <div class="section-title">
+      Today's Mission 🍓
+    </div>
+
+    <label class="habit">
+      <input type="checkbox">
+      <span>🥛 Drink V-Soy</span>
+    </label>
+
+    <label class="habit">
+      <input type="checkbox">
+      <span>🥚 Eat 2 eggs</span>
+    </label>
+
+    <label class="habit">
+      <input type="checkbox">
+      <span>🍗 Eat enough protein</span>
+    </label>
+
+    <label class="habit">
+      <input type="checkbox">
+      <span>💧 Drink water</span>
+    </label>
+
+    <label class="habit">
+      <input type="checkbox">
+      <span>🍓 Eat fruit</span>
+    </label>
+
+    <label class="habit">
+      <input type="checkbox">
+      <span>🍑 Booty workout</span>
+    </label>
+
+    <div class="footer">
+      LUNA • Glow Diary 🌙<br>
+      40 kg → 45 kg
+    </div>
+
+  </main>
+
+</body>
+</html>
