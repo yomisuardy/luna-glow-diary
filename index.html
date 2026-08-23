@@ -179,10 +179,25 @@
     </div>
 
     <label class="habit">
-      <input type="checkbox">
-      <span>🥛 Drink V-Soy</span>
-    </label>
 
+      <input type="checkbox" id="vsoy">
+<span>🥛 Drink V-Soy</span>
+    </label>
+<script>
+document.getElementById("vsoy").addEventListener("change", async function () {
+  const today = new Date().toISOString().split("T")[0];
+
+  await supabaseClient
+    .from("daily_habits")
+    .upsert({
+      habit_date: today,
+      vsoy: this.checked
+    }, {
+      onConflict: "habit_date"
+    });
+});
+</script>
+    
     <label class="habit">
       <input type="checkbox">
       <span>🥚 Eat 2 eggs</span>
