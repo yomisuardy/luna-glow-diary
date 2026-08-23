@@ -217,6 +217,17 @@
 <script>
   // LUNA connection test
   console.log("LUNA is ready 🌙");
+  <script>
+  const SUPABASE_URL = "https://jyidzntbarfursbgehfk.supabase.co/rest/v1/";
+  const SUPABASE_KEY = "sb_publishable_DFlvXlwwgVgmGagJEjMvog_kt8gSP7F";
+
+  const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  console.log("LUNA connected to Supabase 🌙");
+</script>
 </script>
 </body>
 </html>
