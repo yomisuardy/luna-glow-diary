@@ -199,29 +199,94 @@ document.getElementById("vsoy").addEventListener("change", async function () {
 </script>
     
     <label class="habit">
-      <input type="checkbox">
-      <span>🥚 Eat 2 eggs</span>
-    </label>
 
-    <label class="habit">
-      <input type="checkbox">
-      <span>🍗 Eat enough protein</span>
-    </label>
+      <div class="section-title">
+  Today's Mission 🍓
+</div>
 
-    <label class="habit">
-      <input type="checkbox">
-      <span>💧 Drink water</span>
-    </label>
+<label class="habit">
+  <input type="checkbox" data-habit="vsoy">
+  <span>🥛 Drink V-Soy</span>
+</label>
 
-    <label class="habit">
-      <input type="checkbox">
-      <span>🍓 Eat fruit</span>
-    </label>
+<label class="habit">
+  <input type="checkbox" data-habit="eggs">
+  <span>🥚 Eat 2 eggs</span>
+</label>
 
-    <label class="habit">
-      <input type="checkbox">
-      <span>🍑 Booty workout</span>
-    </label>
+<label class="habit">
+  <input type="checkbox" data-habit="protein">
+  <span>🍗 Eat enough protein</span>
+</label>
+
+<label class="habit">
+  <input type="checkbox" data-habit="water">
+  <span>💧 Drink water</span>
+</label>
+
+<label class="habit">
+  <input type="checkbox" data-habit="fruit">
+  <span>🍓 Eat fruit</span>
+</label>
+
+<label class="habit">
+  <input type="checkbox" data-habit="workout">
+  <span>🍑 Booty workout</span>
+</label>
+
+<script>
+const habits = ["vsoy", "eggs", "protein", "water", "fruit", "workout"];
+
+async function loadHabits() {
+  const today = new Date().toISOString().split("T")[0];
+
+  const { data } = await supabaseClient
+    .from("daily_habits")
+    .select("*")
+    .eq("habit_date", today)
+    .limit(1);
+
+  if (data && data.length > 0) {
+    habits.forEach(habit => {
+      const box = document.querySelector(`[data-habit="${habit}"]`);
+      if (box) box.checked = !!data[0][habit];
+    });
+  }
+}
+
+async function saveHabit(habit, value) {
+  const today = new Date().toISOString().split("T")[0];
+
+  const { data } = await supabaseClient
+    .from("daily_habits")
+    .select("id")
+    .eq("habit_date", today)
+    .limit(1);
+
+  if (data && data.length > 0) {
+    await supabaseClient
+      .from("daily_habits")
+      .update({ [habit]: value })
+      .eq("id", data[0].id);
+  } else {
+    await supabaseClient
+      .from("daily_habits")
+      .insert({
+        habit_date: today,
+        [habit]: value
+      });
+  }
+}
+
+document.querySelectorAll("[data-habit]").forEach(box => {
+  box.addEventListener("change", () => {
+    saveHabit(box.dataset.habit, box.checked);
+  });
+});
+
+loadHabits();
+</script>
+
 
     <div class="footer">
       LUNA • Glow Diary 🌙<br>
